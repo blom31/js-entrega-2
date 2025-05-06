@@ -8,23 +8,27 @@
     <link rel="stylesheet" href="style.css">
     <title>Javascript | Segunda entrega</title>
 </head>
-<header>
-    <ul class="menu bg-transparent">
-        <li>Home</li>
-        <li>Peliculas</li>
-        <li>Login</li>
-    </ul>
-</header>
 
-<body class="container-fluid text-white">
+<body class="container-fluid ">
+    <header>
+        <ul class="menu bg-transparent">
+            <li>Home</li>
+            <li>Peliculas</li>
+            <li>Login</li>
+
+        </ul>
+    </header>
+
     <section>
         <form class="formulario" id="formulario">
             <p>Registrate</p>
             <label>Nombre: </label>
-            <input class="form-control mt-2" id="nombre" type="text" placeholder="Nombre" style="width: 20em;" />
+            <input class="form-control mt-2" id="nombre" type="text" placeholder="Nombre" style="width: 20em;"
+                required />
             <label>Apellido: </label>
-            <input class="form-control mt-2" id="apellido" type="text" placeholder="Apellido" style="width: 20em;" />
-            <button class="btn btn-light mt-2" id="btnGuardar">Guardar</button>
+            <input class="form-control mt-2" id="apellido" type="text" placeholder="Apellido" style="width: 20em;"
+                required />
+            <button class="btn  mt-2" id="btnGuardar">Guardar</button>
         </form>
     </section>
     <section class="contenedorCartelera">
@@ -38,7 +42,7 @@
         </div>
 
         <section class="resultado">
-            <p class="saludo">Tu compra final</p>
+            <p class="saludo text-white">Tu compra final</p>
             <div class="compraFinal" id="compraFinal">
                 <!--  aquí se mostrara el resumen de la compra -->
             </div>

@@ -1,12 +1,16 @@
 body {
-    background: linear-gradient(to right, #080808ed, #080808ed), url(./assets/fondo-index.jpg);
+    /* background: linear-gradient(to right, #080808ed, #080808ed), url(./assets/fondo-index.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: cover; */
+    background-color: #111;
+    color: white;
 }
 
 header {
-    height: 2em;
+    height: auto;
+    padding: 0.5em 0;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .menu {
@@ -44,6 +48,7 @@ header {
 
 .cartelera {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }
@@ -72,4 +77,13 @@ header {
 
 .resumen p {
     font-weight: 500;
+}
+
+.resumen ul {
+    list-style: none;
+    padding: 0.5em;
+}
+
+.btn {
+    background-color: rgb(92, 183, 69);
 }

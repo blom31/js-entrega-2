@@ -18,16 +18,21 @@ let guardarUsuario = document.getElementById("btnGuardar");
 guardarUsuario.addEventListener("click", (event) => {
   event.preventDefault(); // detiene el reinicio de la pág cuando presione el botón guardar
 
-  const nombre = document.getElementById("nombre").value;
-  const apellido = document.getElementById("apellido").value;
+  const nombre = document.getElementById("nombre").value.trim(); // el trim elimina si hay espacios en blanco
+  const apellido = document.getElementById("apellido").value.trim();
+
+  // esto para validar que los campos no los guarde vacíos
+  if (!nombre || !apellido) {
+    alert("Por favor, completa ambos campos antes de continuar.");
+    return;
+  }
 
   usuario.nombre = nombre;
   usuario.apellido = apellido;
   console.log(usuario); // verifico que se guarde correctamente los datos
 
   sessionStorage.setItem("nombre", usuario.nombre); //guardo los datos en el sessionStorage
-  const nombreGuardado = sessionStorage.getItem("nombre"); // recupero los datos y valido que sean correctos
-  console.log(nombreGuardado);
+  const nombreGuardado = sessionStorage.getItem("nombre"); // recupero los datos
 
   if (nombreGuardado) {
     // si recupero datos del formulario y los guardo, muestro un saludo
@@ -56,9 +61,14 @@ cartelera.innerHTML = tarjetaPeliculas;
 let compraFinal = document.getElementById("compraFinal");
 let carritoPeli = [];
 
-let botonesComprar = document.querySelectorAll(".btn");
-botonesComprar.forEach((boton) => {
-  boton.addEventListener("click", (e) => {
+document.getElementById("cartelera").addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn")) {
+    // Validar si el usuario ha ingresado su nombre
+    if (!usuario.nombre.trim()) {
+      alert("Por favor, ingresa tu nombre antes de elegir una película.");
+      return;
+    }
+
     const index = parseInt(e.target.getAttribute("data-index"));
     const peliSeleccionada = peliculas[index];
 
@@ -66,22 +76,28 @@ botonesComprar.forEach((boton) => {
       carritoPeli.push(peliSeleccionada);
       actualizarResumen();
     }
-  });
+  }
 });
 
 // 6. Mostrar resumen de compra
-function actualizarResumen() {
-  let total = carritoPeli.reduce((sum, peli) => sum + peli.precio, 0);
-  let listaPeliculas = carritoPeli
-    .map((p) => `<li>${p.nombre} - $${p.precio}</li>`)
-    .join("");
 
-  compraFinal.innerHTML = `
-    <div class="resumen">
-      <p>Resumen de Compra</p>
-      <p>Nombre: ${usuario.nombre}</p>
-      <ul>${listaPeliculas}</ul>
-      <p><strong>Total: $${total}</strong></p>
-    </div>
-  `;
+function actualizarResumen() {
+  let total = 0;
+  for (let i = 0; i < carritoPeli.length; i++) {
+    const pelicula = carritoPeli[i];
+    total = total + pelicula.precio;
+  }
+  let listaPeliculas = "";
+  for (let i = 0; i < carritoPeli.length; i++) {
+    const pelicula = carritoPeli[i];
+    const elementoLista = `<li>${pelicula.nombre} - $${pelicula.precio}</li>`;
+    listaPeliculas = listaPeliculas + elementoLista;
+  }
+  const resumenHTML = ` <div class="resumen">
+                          <p>Resumen de Compra</p> 
+                          <p>Nombre: ${usuario.nombre}</p> 
+                          <ul>${listaPeliculas}</ul> 
+                          <p><strong>Total: $${total}</strong></p>
+                        </div> `;
+  compraFinal.innerHTML = resumenHTML;
 }
