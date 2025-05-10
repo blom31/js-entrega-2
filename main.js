@@ -79,8 +79,7 @@ document.getElementById("cartelera").addEventListener("click", (e) => {
   }
 });
 
-// // 6. Mostrar resumen de compra hecha paso a paso
-
+// 6. Mostrar resumen de compra hecha paso a paso
 // function actualizarResumen() {
 //   let total = 0;
 //   for (let i = 0; i < carritoPeli.length; i++) {

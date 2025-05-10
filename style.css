@@ -1,31 +1,82 @@
 body {
-    /* background: linear-gradient(to right, #080808ed, #080808ed), url(./assets/fondo-index.jpg);
+    font-family: "Oswald", sans-serif;
+    background: linear-gradient(to right, #080808ed, #080808ed), url(./assets/fondo-index.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover; */
+    background-size: cover;
     background-color: #111;
     color: white;
 }
 
-header {
-    height: auto;
-    padding: 0.5em 0;
-    background-color: rgba(0, 0, 0, 0.6);
+h1 {
+    font-size: 2rem;
+    /* color: darkgoldenrod; */
+}
+
+h2 {
+    font-size: 1.7rem;
+    /* color: darkgoldenrod; */
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
 
 .menu {
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.menu-listado {
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     list-style: none;
     font-size: 1.2em;
     padding: 0.5em;
+    /* color: forestgreen; */
+    font-size: 1.5rem;
 }
 
-.menu li {
-    color: white;
+.cartelera {
+    width: 95dvw;
+    height: 80dvh;
+    margin: 15px;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center; */
 }
 
+.cartelera-peliculas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: goldenrod;
+}
+
+.pelicula {
+    width: 250px;
+    background: slateblue;
+}
+
+/*
 .formulario {
     margin: 1.5em;
     padding: 0.5em;
@@ -46,12 +97,6 @@ header {
     justify-content: space-between;
 }
 
-.cartelera {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
 
 .carteleraTitle,
 .saludo {
