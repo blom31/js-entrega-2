@@ -79,47 +79,24 @@ document.getElementById("cartelera").addEventListener("click", (e) => {
   }
 });
 
-// 6. Mostrar resumen de compra hecha paso a paso
-// function actualizarResumen() {
-//   let total = 0;
-//   for (let i = 0; i < carritoPeli.length; i++) {
-//     const pelicula = carritoPeli[i];
-//     total = total + pelicula.precio;
-//   }
-//   let listaPeliculas = "";
-//   for (let i = 0; i < carritoPeli.length; i++) {
-//     const pelicula = carritoPeli[i];
-//     const elementoLista = `<li>${pelicula.nombre} - $${pelicula.precio}</li>`;
-//     listaPeliculas = listaPeliculas + elementoLista;
-//   }
-//   const resumenHTML = ` <div class="resumen">
-//                           <p>Resumen de Compra</p>
-//                           <p>Nombre: ${usuario.nombre}</p>
-//                           <ul>${listaPeliculas}</ul>
-//                           <p><strong>Total: $${total}</strong></p>
-//                         </div> `;
-//   compraFinal.innerHTML = resumenHTML;
+// 6. Mostrar resumen de compra
 
-// 6. Mostrar resumen de compra optimizada con metodos como reduce y map
 function actualizarResumen() {
-  const total = carritoPeli.reduce(
-    //el reduce sustituye el ciclo for. la const total guardará la suma de los precios
-    (acumulador, pelicula) => acumulador + pelicula.precio,
-    0
-  );
-  console.log(total); //verifico que el total se esté calculando
-  const listaPeliculas = carritoPeli
-    .map(
-      (
-        pelicula //el map sustituye el ciclo for. el map devuelve un nuevo array
-      ) =>
-        `<li> Titulo: ${pelicula.nombre} - Horario: ${pelicula.hora} - Valor: ${pelicula.precio}</li>`
-    )
-    .join(""); // el join une los elementos del array en un string
+  let total = 0;
+  for (let i = 0; i < carritoPeli.length; i++) {
+    const pelicula = carritoPeli[i];
+    total = total + pelicula.precio;
+  }
+  let listaPeliculas = "";
+  for (let i = 0; i < carritoPeli.length; i++) {
+    const pelicula = carritoPeli[i];
+    const elementoLista = `<li>${pelicula.nombre} - $${pelicula.precio}</li>`;
+    listaPeliculas = listaPeliculas + elementoLista;
+  }
   const resumenHTML = ` <div class="resumen">
-                          <p>Resumen de Compra</p>
-                          <p>Nombre: ${usuario.nombre}</p>
-                          <ul>${listaPeliculas}</ul>
+                          <p>Resumen de Compra</p> 
+                          <p>Nombre: ${usuario.nombre}</p> 
+                          <ul>${listaPeliculas}</ul> 
                           <p><strong>Total: $${total}</strong></p>
                         </div> `;
   compraFinal.innerHTML = resumenHTML;
