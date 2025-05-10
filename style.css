@@ -1,82 +1,27 @@
 body {
-    font-family: "Oswald", sans-serif;
     background: linear-gradient(to right, #080808ed, #080808ed), url(./assets/fondo-index.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color: #111;
-    color: white;
 }
 
-h1 {
-    font-size: 2rem;
-    /* color: darkgoldenrod; */
-}
-
-h2 {
-    font-size: 1.7rem;
-    /* color: darkgoldenrod; */
-}
-
-a {
-    text-decoration: none;
-    color: white;
+header {
+    height: 2em;
 }
 
 .menu {
-    margin: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    width: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.logo img {
-    width: 100%;
-}
-
-.menu-listado {
-    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     list-style: none;
     font-size: 1.2em;
     padding: 0.5em;
-    /* color: forestgreen; */
-    font-size: 1.5rem;
 }
 
-.cartelera {
-    width: 95dvw;
-    height: 80dvh;
-    margin: 15px;
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center; */
+.menu li {
+    color: white;
 }
 
-.cartelera-peliculas {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: goldenrod;
-}
-
-.pelicula {
-    width: 250px;
-    background: slateblue;
-}
-
-/*
 .formulario {
     margin: 1.5em;
     padding: 0.5em;
@@ -97,6 +42,11 @@ a {
     justify-content: space-between;
 }
 
+.cartelera {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
 .carteleraTitle,
 .saludo {
@@ -122,13 +72,4 @@ a {
 
 .resumen p {
     font-weight: 500;
-}
-
-.resumen ul {
-    list-style: none;
-    padding: 0.5em;
-}
-
-.btn {
-    background-color: rgb(92, 183, 69);
 }
